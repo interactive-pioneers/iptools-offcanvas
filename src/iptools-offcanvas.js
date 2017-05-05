@@ -171,7 +171,12 @@
       this.unbindDocHandler();
     }
 
-    this.element.dispatchEvent(new Event(eventName));
+    if (eventName !== '') {
+      // this.element.dispatchEvent(new CustomEvent(eventName));
+      var eventObj = document.createEvent('CustomEvent');
+      eventObj.initEvent(eventName, true, true);
+      this.element.dispatchEvent(eventObj);
+    }
 
     this.element.classList.toggle(activeTypeClass, open);
   };

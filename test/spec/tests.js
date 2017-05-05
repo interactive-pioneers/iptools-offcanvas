@@ -138,18 +138,6 @@
         object.destroy();
       });
 
-      it('expected to add active class', function() {
-        object.toggle(true);
-
-        return expect(object.isActive()).to.be.ok;
-      });
-
-      it('expected to remove active class', function() {
-        object.toggle(false);
-
-        return expect(object.isActive()).to.be.not.ok;
-      });
-
       it('expected to toggle active class', function() {
         var before = object.isActive();
         object.toggle();
@@ -163,7 +151,7 @@
 
         return expect(object.isActive()).to.be.false;
       });
-
+      //
       it('expected to be active', function() {
         object.toggle(true);
 

@@ -27,14 +27,16 @@
     <button data-offcanvas-close="custom2">X</button>
   </section>
 
+  <script src="../node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js"></script>
+  <script src="../node_modules/nodelist-foreach-polyfill/index.js"></script>
   <script src="../node_modules/mocha/mocha.js"></script>
   <script src="../node_modules/chai/chai.js"></script>
   <script>
     mocha.setup('bdd');
     var expect = chai.expect;
   </script>
-  <script src="../dist/iptools-offcanvas.min.js"></script>
   <script src="spec/tests.js"></script>
+  <script src="../src/iptools-offcanvas.js"></script>
   <script>
     if (navigator.userAgent.indexOf('PhantomJS') < 0) {
       mocha.run();
