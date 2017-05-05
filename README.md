@@ -1,4 +1,4 @@
-# iptools-offcanvas
+# iptools-offcanvas [![Build Status](https://api.travis-ci.org/interactive-pioneers/iptools-offcanvas.svg)]
 
 Simple CSS3 animated offcanvas.
 
