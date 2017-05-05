@@ -2,6 +2,10 @@
 
 Simple CSS3 animated offcanvas.
 
+## Related
+
+- [jQuery version](https://github.com/interactive-pioneers/iptools-jquery-offcanvas)
+
 ## Features
 
 - Displays content inside an offcanvas from the top, right, bottom or left.
@@ -29,10 +33,6 @@ Event        | Element        | Description
 :------------|:---------------|:-----------
 opened       | element        | Emitted when the canvas opens.
 closed       | element        | Emitted when the canvas closes.
-
-## Requirements
-
-- none
 
 ## Example
 
