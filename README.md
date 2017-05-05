@@ -8,31 +8,31 @@ Simple CSS3 animated offcanvas.
 
 ## Features
 
-- Displays content inside an offcanvas from the top, right, bottom or left.
-- Multiple instances at once.
-- Static, instance is open on page load.
-- Single mode closes all other off canvas instances when opening.
+- Displays content inside an offcanvas from the `top`, `right`, `bottom` or `left`.
+- Multiple canvases at once.
+- Static, canvas is open on page load.
+- Single mode closes all other off canvases when opening.
 - CSS3 transitions and animations.
 
 ## Options
 
 All options are optional.
 
-Name                 | type     | default value               | values                                     | description
-:--------------------|:---------|:----------------------------|:-------------------------------------------|:-----------------------------------
-baseClass            | string   | offcanvas                   | valid css class string                     | base css class
-type                 | string   | left                        | top, right, bottom, left                   | canvas position
-single               | boolean  | true                        |                                            | single mode, closes all other instances
-closeOnClickOutside  | boolean  | false                       |                                            | close canvas on click outside
-static               | boolean  | false                       |                                            | open after initialization
-staticCondition      | function | function() { return true; } | a function returning either true or false  | close condition for static canvas
+Name                   | type       | default value                 | values                                     | description
+:----------------------|:-----------|:------------------------------|:-------------------------------------------|:-----------------------------------
+`baseClass`            | `string`   | `offcanvas`                   | valid css class string                     | base css class
+`type`                 | `string`   | `left`                        | `top`, `right`, `bottom`, `left`           | canvas position
+`single`               | `boolean`  | `true`                        |                                            | single mode, closes all other canvases
+`closeOnClickOutside`  | `boolean`  | `false`                       |                                            | close canvas on click outside
+`static`               | `boolean`  | `false`                       |                                            | open after initialization
+`staticCondition`      | `function` | `function() { return true; }` | a function returning either true or false  | close condition for static canvas
 
 ## Events
 
-Event        | Element        | Description
-:------------|:---------------|:-----------
-opened       | element        | Emitted when the canvas opens.
-closed       | element        | Emitted when the canvas closes.
+Event        | Description
+:------------|:-----------
+`opened`     | Emitted when the canvas opens.
+`closed`     | Emitted when the canvas closes.
 
 ## Example
 
