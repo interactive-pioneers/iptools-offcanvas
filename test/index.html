@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Mocha Spec Runner</title>
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+  <link rel="stylesheet" href="../dist/iptools-offcanvas.css">
+</head>
+<body>
+  <div id="mocha"></div>
+
+  <button data-offcanvas-open="custom">open</button>
+  <button data-offcanvas-close="custom">close</button>
+  <button data-offcanvas-toggle="custom">toggle</button>
+  <br/>
+  <button data-offcanvas-open="custom2">open2</button>
+  <button data-offcanvas-close="custom2">close2</button>
+  <button data-offcanvas-toggle="custom2">toggle2</button>
+
+  <section id="custom" class="offcanvas" style="padding:50px;background-color:rgba(0,0,0,0.5);">
+    <p>content</p>
+    <button data-offcanvas-close="custom">X</button>
+  </section>
+
+  <section id="custom2" class="offcanvas" style="padding:50px;background-color:rgba(169,0,0,0.5);">
+    <p>content</p>
+    <button data-offcanvas-close="custom2">X</button>
+  </section>
+
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script>
+    mocha.setup('bdd');
+    var expect = chai.expect;
+  </script>
+  <script src="../dist/iptools-offcanvas.min.js"></script>
+  <script src="spec/tests.js"></script>
+  <script>
+    if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+      mocha.run();
+    }
+  </script>
+</body>
+</html>
