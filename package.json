@@ -30,6 +30,7 @@
     "grunt-jscs": "~3.0.1",
     "chai": "~3.5.0",
     "mocha": "~3.3.0",
+    "object-assign": "~4.1.1",
     "phantomjs-polyfill-object-assign": "~0.0.2",
     "nodelist-foreach-polyfill": "~1.0.0"
   },

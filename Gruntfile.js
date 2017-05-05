@@ -79,7 +79,10 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '<%= yeoman.dist %>/iptools-offcanvas.min.js': ['<%= yeoman.src %>/iptools-offcanvas.js']
+          '<%= yeoman.dist %>/iptools-offcanvas.min.js': [
+            'node_modules/object-assign/index.js',
+            '<%= yeoman.src %>/iptools-offcanvas.js'
+          ]
         }
       }
     },
