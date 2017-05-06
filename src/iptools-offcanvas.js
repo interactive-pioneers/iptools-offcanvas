@@ -61,14 +61,6 @@
     document.removeEventListener('click', this.documentHandler);
   }
 
-  function _initialize() {
-    if (this.settings.static) {
-      this.element.dispatchEvent(new Event('open'));
-    }
-
-    this.element.classList.add(this.settings.baseClass + modifiers.initialized);
-  }
-
   function _open(event) {
     event.target.IPTOffCanvas.toggle(true);
     event.stopPropagation();
@@ -88,9 +80,6 @@
     var self = this;
 
     this.element.IPTOffCanvas = self;
-    this.element.addEventListener('open', _open);
-    this.element.addEventListener('close', _close);
-    this.element.addEventListener('toggle', _toggle);
 
     this.openNodes.forEach(function(elem) {
       elem.IPTOffCanvas = self;
@@ -106,6 +95,14 @@
       elem.IPTOffCanvas = self;
       elem.addEventListener('click', _toggle);
     });
+  }
+
+  function _initialize() {
+    this.element.classList.add(this.settings.baseClass + modifiers.initialized);
+
+    if (this.settings.static) {
+      this.toggle(true);
+    }
   }
 
   function IPTOffCanvas(selector, options) {
@@ -190,9 +187,6 @@
   IPTOffCanvas.prototype.destroy = function() {
     delete(this.element.IPTOffCanvas);
 
-    this.element.removeEventListener('open', _open);
-    this.element.removeEventListener('close', _close);
-    this.element.removeEventListener('toggle', _toggle);
     this.element.classList.remove(this.settings.baseClass + modifiers.initialized);
     this.element.classList.remove(this.settings.baseClass + types[this.settings.type].activeClass);
 
