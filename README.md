@@ -1,20 +1,13 @@
 # iptools-offcanvas [![Build Status](https://api.travis-ci.org/interactive-pioneers/iptools-offcanvas.svg)](https://travis-ci.org/interactive-pioneers/iptools-offcanvas)
 
-Simple CSS3 animated offcanvas.
+Simple lightweight (5k) native js css3 animated offcanvas.
+Displays content inside an offcanvas from the `top`, `right`, `bottom` or `left`.
 
 ## Related
 
 - [jQuery version](https://github.com/interactive-pioneers/iptools-jquery-offcanvas)
 
-## Features
-
-- Displays content inside an offcanvas from the `top`, `right`, `bottom` or `left`.
-- Multiple canvases at once.
-- Static, canvas is open on page load.
-- Single mode closes all other off canvases when opening.
-- CSS3 transitions and animations.
-
-## Options
+## Features / Options
 
 All options are optional.
 
