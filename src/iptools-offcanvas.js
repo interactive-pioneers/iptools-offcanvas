@@ -98,11 +98,11 @@
   }
 
   function _initialize() {
-    this.element.classList.add(this.settings.baseClass + modifiers.initialized);
-
     if (this.settings.static) {
       this.toggle(true);
     }
+
+    this.element.classList.add(this.settings.baseClass + modifiers.initialized);
   }
 
   function IPTOffCanvas(selector, options) {

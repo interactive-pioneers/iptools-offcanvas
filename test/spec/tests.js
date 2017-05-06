@@ -64,18 +64,6 @@
         return expect(before !== after).to.be.ok;
       });
 
-      it('expected object to open', function() {
-        object.toggle(true);
-
-        return expect(object.isActive()).to.be.true;
-      });
-
-      it('expected object to close', function() {
-        object.toggle(false);
-
-        return expect(object.isActive()).to.be.false;
-      });
-
       it('expected object settings', function() {
         var settings = object.getSettings();
 
