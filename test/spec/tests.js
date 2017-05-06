@@ -36,6 +36,54 @@
 
     });
 
+    describe('ui', function() {
+
+      beforeEach(function() {
+        object = new IPTOffCanvas(selector, config);
+      });
+
+      afterEach(function() {
+        object.destroy();
+      });
+
+      it('expected object to be active', function() {
+        object.toggle(true);
+
+        return expect(object.isActive()).to.be.true;
+      });
+
+      it('expected object to be not active', function() {
+        return expect(object.isActive()).to.be.not.true;
+      });
+
+      it('expected object to toggle', function() {
+        var before = object.isActive();
+        object.toggle();
+        var after = object.isActive();
+
+        return expect(before !== after).to.be.ok;
+      });
+
+      it('expected object to open', function() {
+        object.toggle(true);
+
+        return expect(object.isActive()).to.be.true;
+      });
+
+      it('expected object to close', function() {
+        object.toggle(false);
+
+        return expect(object.isActive()).to.be.false;
+      });
+
+      it('expected object settings', function() {
+        var settings = object.getSettings();
+
+        return expect(JSON.stringify(settings) === JSON.stringify(config)).to.be.true;
+      });
+
+    });
+
     describe('settings', function() {
 
       // beforeEach(function() {});
@@ -47,7 +95,7 @@
         }
       });
 
-      it('expected to close on click outside', function() {
+      it('expected object to close on click outside', function() {
         object = new IPTOffCanvas(selector, Object.assign({}, config, {closeOnClickOutside: true}));
 
         object.toggle(true);
@@ -56,13 +104,13 @@
         return expect(object.isActive()).to.be.not.ok;
       });
 
-      it('expected to be static', function() {
+      it('expected object to be static', function() {
         object = new IPTOffCanvas(selector, Object.assign({}, config, {static: true}));
 
         return expect(object.isActive()).to.be.ok;
       });
 
-      it('expected static to close when single opens', function() {
+      it('expected object2 static to close when object single opens', function() {
         object = new IPTOffCanvas(selector, config);
         object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {static: true, type: 'bottom'}));
 
@@ -71,7 +119,7 @@
         return expect(object2.isActive()).to.be.not.ok;
       });
 
-      it('expected static to not close when single opens', function() {
+      it('expected object2 static to not close when object single opens', function() {
         object = new IPTOffCanvas(selector, config);
         object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {
           static: true,
@@ -84,7 +132,7 @@
         return expect(object2.isActive()).to.be.ok;
       });
 
-      it('expected to be single', function() {
+      it('expected object to be single', function() {
         object = new IPTOffCanvas(selector, config);
         object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {type: 'bottom', single: false}));
 
@@ -94,7 +142,7 @@
         return expect(object.isActive() && object2.isActive()).to.be.not.ok;
       });
 
-      it('expected not to be single', function() {
+      it('expected object not to be single', function() {
         object = new IPTOffCanvas(selector, Object.assign({}, config, {single: false}));
         object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {type: 'bottom', single: false}));
 
@@ -104,7 +152,7 @@
         return expect(object.isActive() && object2.isActive()).to.be.ok;
       });
 
-      it('expected two singles at once', function() {
+      it('expected two object single at once', function() {
         object = new IPTOffCanvas(selector, config);
         object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {type: 'bottom'}));
 
@@ -131,7 +179,7 @@
         element = null;
       });
 
-      it('expected to emit the "initialized" event', function() {
+      it('expected object to emit the "initialized" event', function() {
         var emitted = false;
         element.addEventListener('initialized', function() {
           emitted = true;
@@ -141,7 +189,7 @@
         return expect(emitted).to.be.ok;
       });
 
-      it('expected to emit the "opened" event', function() {
+      it('expected object to emit the "opened" event', function() {
         object = new IPTOffCanvas(selector, config);
         var emitted = false;
         element.addEventListener('opened', function() {
@@ -152,7 +200,7 @@
         return expect(emitted).to.be.ok;
       });
 
-      it('expected to emit the "closed" event', function() {
+      it('expected object to emit the "closed" event', function() {
         object = new IPTOffCanvas(selector, config);
         var emitted = false;
         element.addEventListener('closed', function() {
@@ -162,44 +210,6 @@
         object.toggle();
 
         return expect(emitted).to.be.ok;
-      });
-
-    });
-
-    describe('ui', function() {
-
-      beforeEach(function() {
-        object = new IPTOffCanvas(selector, config);
-      });
-
-      afterEach(function() {
-        object.destroy();
-      });
-
-      it('expected to toggle active class', function() {
-        var before = object.isActive();
-        object.toggle();
-        var after = object.isActive();
-
-        return expect(before !== after).to.be.ok;
-      });
-
-      it('expected to be inactive', function() {
-        object.toggle(false);
-
-        return expect(object.isActive()).to.be.false;
-      });
-      //
-      it('expected to be active', function() {
-        object.toggle(true);
-
-        return expect(object.isActive()).to.be.true;
-      });
-
-      it('expected to return settings', function() {
-        var settings = object.getSettings();
-
-        return expect(JSON.stringify(settings) === JSON.stringify(config)).to.be.true;
       });
 
     });
@@ -215,7 +225,7 @@
         element = null;
       });
 
-      it('expected to remove data', function() {
+      it('expected object to remove data', function() {
         object.destroy();
         return expect(element.IPTOffCanvas).to.not.be.ok;
       });
