@@ -11,7 +11,7 @@
       closeOnClickOutside: false,
       single: true,
       static: false,
-      staticCondition: function() { return true; },
+      staticCloseCondition: function() { return true; },
       type: 'right'
     };
 
@@ -62,13 +62,26 @@
         return expect(object.isActive()).to.be.ok;
       });
 
-      it('expected to be not static', function() {
-        object = new IPTOffCanvas(
-          selector,
-          Object.assign({}, config, {static: true, staticCondition: function() { return false; }})
-        );
+      it('expected static to close when single opens', function() {
+        object = new IPTOffCanvas(selector, config);
+        object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {static: true, type: 'bottom'}));
 
-        return expect(object.isActive()).to.be.not.ok;
+        object.toggle(true);
+
+        return expect(object2.isActive()).to.be.not.ok;
+      });
+
+      it('expected static to not close when single opens', function() {
+        object = new IPTOffCanvas(selector, config);
+        object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {
+          static: true,
+          staticCloseCondition: function() { return false; },
+          type: 'bottom'
+        }));
+
+        object.toggle(true);
+
+        return expect(object2.isActive()).to.be.ok;
       });
 
       it('expected to be single', function() {
@@ -78,7 +91,7 @@
         object2.toggle(true);
         object.toggle(true);
 
-        return expect(object.isActive() && !object2.isActive()).to.be.ok;
+        return expect(object.isActive() && object2.isActive()).to.be.not.ok;
       });
 
       it('expected not to be single', function() {
@@ -89,6 +102,20 @@
         object2.toggle(true);
 
         return expect(object.isActive() && object2.isActive()).to.be.ok;
+      });
+
+      it('expected two singles at once', function() {
+        object = new IPTOffCanvas(selector, config);
+        object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {type: 'bottom'}));
+
+        object.toggle(true);
+        object2.toggle(true);
+        var first = !object.isActive() && object2.isActive();
+
+        object.toggle(true);
+        var second = object.isActive() && !object2.isActive();
+
+        return expect(first && second).to.be.ok;
       });
 
     });

@@ -18,7 +18,7 @@
     closeOnClickOutside: false,
     single: true,
     static: false,
-    staticCondition: alwaysTrue,
+    staticCloseCondition: alwaysTrue,
     type: 'right'
   };
 
@@ -62,7 +62,7 @@
   }
 
   function _initialize() {
-    if (this.settings.static && this.settings.staticCondition()) {
+    if (this.settings.static) {
       this.element.dispatchEvent(new Event('open'));
     }
 
@@ -128,6 +128,7 @@
     this.addEventHandler();
     this.initializeHandler();
 
+    // this.element.dispatchEvent(new CustomEvent('initialized'));
     var eventObj = document.createEvent('CustomEvent');
     eventObj.initEvent('initialized', true, true);
     this.element.dispatchEvent(eventObj);
@@ -147,9 +148,7 @@
     var offcanvasSettings;
     var self = this;
 
-    if (typeof open === 'undefined') {
-      open = !this.isActive();
-    }
+    open = typeof open === 'undefined' ? !this.isActive() : open;
 
     // close other instances
     if (this.settings.single && open) {
@@ -159,7 +158,10 @@
         if (
           self.element !== offcanvasInstance.element &&
           offcanvasInstance.isActive() &&
-          !(offcanvasSettings.static && offcanvasSettings.staticCondition())
+          (
+            !offcanvasSettings.static ||
+            offcanvasSettings.static && offcanvasSettings.staticCloseCondition()
+          )
         ) {
           offcanvasInstance.toggle(false);
         }

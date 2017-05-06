@@ -18,7 +18,7 @@ Name                   | type       | default value                 | values    
 `single`               | `boolean`  | `true`                        |                                            | single mode, closes all other canvases
 `closeOnClickOutside`  | `boolean`  | `false`                       |                                            | close canvas on click outside
 `static`               | `boolean`  | `false`                       |                                            | open after initialization
-`staticCondition`      | `function` | `function() { return true; }` | a function returning either true or false  | close condition for static canvas
+`staticCloseCondition` | `function` | `function() { return true; }` | a function returning either true or false  | close condition for static canvas
 
 ## Methods
 
@@ -59,7 +59,7 @@ Event         | Description
     closeOnClickOutside: false,
     single: true,
     static: false,
-    staticCondition: function() { return true; },
+    staticCloseCondition: function() { return true; },
     type: 'right'
   });
 
