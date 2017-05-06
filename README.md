@@ -1,7 +1,8 @@
 # iptools-offcanvas [![Build Status](https://api.travis-ci.org/interactive-pioneers/iptools-offcanvas.svg)](https://travis-ci.org/interactive-pioneers/iptools-offcanvas)
 
-Simple lightweight (5k) native js css3 animated offcanvas.
-Displays content inside an offcanvas from the `top`, `right`, `bottom` or `left`.
+Simple lightweight (5k) native js css3 animated offcanvas....
+Displays content inside an offcanvas from the `top`, `right`, `bottom` or `left`....
+Includes a polyfill for Object.assign.
 
 ## Related
 
