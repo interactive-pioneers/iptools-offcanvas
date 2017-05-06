@@ -96,7 +96,6 @@
     describe('events', function() {
 
       beforeEach(function() {
-        object = new IPTOffCanvas(selector, config);
         element = document.getElementById(selector);
       });
 
@@ -105,7 +104,18 @@
         element = null;
       });
 
+      it('expected to emit the "initialized" event', function() {
+        var emitted = false;
+        element.addEventListener('initialized', function() {
+          emitted = true;
+        });
+        object = new IPTOffCanvas(selector, config);
+
+        return expect(emitted).to.be.ok;
+      });
+
       it('expected to emit the "opened" event', function() {
+        object = new IPTOffCanvas(selector, config);
         var emitted = false;
         element.addEventListener('opened', function() {
           emitted = true;
@@ -116,6 +126,7 @@
       });
 
       it('expected to emit the "closed" event', function() {
+        object = new IPTOffCanvas(selector, config);
         var emitted = false;
         element.addEventListener('closed', function() {
           emitted = true;

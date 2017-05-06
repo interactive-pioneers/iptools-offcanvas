@@ -127,6 +127,10 @@
 
     this.addEventHandler();
     this.initializeHandler();
+
+    var eventObj = document.createEvent('CustomEvent');
+    eventObj.initEvent('initialized', true, true);
+    this.element.dispatchEvent(eventObj);
   }
 
   IPTOffCanvas.prototype.getSettings = function() {
