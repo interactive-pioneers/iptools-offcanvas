@@ -4,7 +4,7 @@ Simple lightweight (5k) native js css3 animated offcanvas.
 
 Displays content inside an offcanvas from the `top`, `right`, `bottom` or `left`.
 
-Includes a polyfill for Object.assign.
+Distribution includes a polyfill for Object.assign.
 
 ## Related
 
