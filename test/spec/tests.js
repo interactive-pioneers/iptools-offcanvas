@@ -17,8 +17,9 @@
 
     var selector = 'custom';
     var object;
-    var object2;
     var element;
+    var selector2 = 'custom2';
+    var object2;
 
     describe('init', function() {
 
@@ -100,7 +101,7 @@
 
       it('expected object2 static to close when object single opens', function() {
         object = new IPTOffCanvas(selector, config);
-        object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {static: true, type: 'bottom'}));
+        object2 = new IPTOffCanvas(selector2, Object.assign({}, config, {static: true, type: 'bottom'}));
 
         object.toggle(true);
 
@@ -109,7 +110,7 @@
 
       it('expected object2 static to not close when object single opens', function() {
         object = new IPTOffCanvas(selector, config);
-        object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {
+        object2 = new IPTOffCanvas(selector2, Object.assign({}, config, {
           static: true,
           staticCloseCondition: function() { return false; },
           type: 'bottom'
@@ -122,7 +123,7 @@
 
       it('expected object to be single', function() {
         object = new IPTOffCanvas(selector, config);
-        object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {type: 'bottom', single: false}));
+        object2 = new IPTOffCanvas(selector2, Object.assign({}, config, {type: 'bottom', single: false}));
 
         object2.toggle(true);
         object.toggle(true);
@@ -132,7 +133,7 @@
 
       it('expected object not to be single', function() {
         object = new IPTOffCanvas(selector, Object.assign({}, config, {single: false}));
-        object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {type: 'bottom', single: false}));
+        object2 = new IPTOffCanvas(selector2, Object.assign({}, config, {type: 'bottom', single: false}));
 
         object.toggle(true);
         object2.toggle(true);
@@ -142,7 +143,7 @@
 
       it('expected two object single at once', function() {
         object = new IPTOffCanvas(selector, config);
-        object2 = new IPTOffCanvas('custom2', Object.assign({}, config, {type: 'bottom'}));
+        object2 = new IPTOffCanvas(selector2, Object.assign({}, config, {type: 'bottom'}));
 
         object.toggle(true);
         object2.toggle(true);
