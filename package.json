@@ -49,5 +49,11 @@
     "offcanvas",
     "overlay",
     "layout"
+  ],
+  "files": [
+    "*.md",
+    "LICENSE",
+    "src",
+    "dist"
   ]
 }
