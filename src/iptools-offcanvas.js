@@ -188,6 +188,7 @@
     delete(this.element.IPTOffCanvas);
 
     this.element.classList.remove(this.settings.baseClass + modifiers.initialized);
+    this.element.classList.remove(this.settings.baseClass + types[this.settings.type].baseClass);
     this.element.classList.remove(this.settings.baseClass + types[this.settings.type].activeClass);
 
     this.openNodes.forEach(function(elem) {
