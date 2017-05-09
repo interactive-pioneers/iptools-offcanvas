@@ -1,4 +1,4 @@
-# iptools-offcanvas [![Build Status](https://api.travis-ci.org/interactive-pioneers/iptools-offcanvas.svg)](https://travis-ci.org/interactive-pioneers/iptools-offcanvas)
+# iptools-offcanvas [![Build Status](https://api.travis-ci.org/interactive-pioneers/iptools-offcanvas.svg)](https://travis-ci.org/interactive-pioneers/iptools-offcanvas) [![npm version](https://badge.fury.io/js/iptools-offcanvas.svg)](https://badge.fury.io/js/iptools-offcanvas)
 
 Simple lightweight (5k) native js css3 animated offcanvas.
 
